@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, Output, ViewChild} from '@angular/core';
 import {RestService} from "./rest.service";
 import {DialogModule} from 'primeng/dialog';
 import {Appointment, AppointmentStatuses, AppointmentStatusToColorMapping, AppointmentSteps} from "./models";
@@ -15,7 +15,10 @@ import {FullCalendarComponent} from "@fullcalendar/angular";
   `,
 })
 export class CalendarComponent implements OnInit {
-  @ViewChild('calendar') calendarComponent?: FullCalendarComponent;
+  @ViewChild('calendar')
+  @Output('calendar')
+  calendarComponent?: FullCalendarComponent;
+
   @ViewChild('dRef') dRef?: ElementRef;
 
   events: any[] | undefined;
@@ -37,6 +40,7 @@ export class CalendarComponent implements OnInit {
       const appointments = await this.restService.getAppointments();
       this.options = this.getOptions(appointments);
     });
+
   }
   private getOptions(appointments: Appointment[]) {
     return {
@@ -55,6 +59,7 @@ export class CalendarComponent implements OnInit {
       selectable:true,
       selectMirror: true,
       dayMaxEvents: true,
+      contentHeight: 600,
     };
   }
   handleClick({ event }: any) {
@@ -67,8 +72,6 @@ export class CalendarComponent implements OnInit {
   getTitle(appointment?: Appointment) {
     if (!appointment) return ''
     else return `${appointment.setter} to ${appointment.doctor} @${appointment.lab}`
-  }
-  ngAfterViewInit() {
   }
   onDialogShow() {
     const status = this.selectedAppointment?.status;

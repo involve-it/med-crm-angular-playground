@@ -71,7 +71,7 @@ import {Table} from "primeng/table";
             <th>
               <div class="p-d-flex p-jc-between p-ai-center">
                 Representative
-                <p-columnFilter field="rep" matchMode="in" display="menu" [showMatchModes]="false"
+                <p-columnFilter field="representative" matchMode="in" display="menu" [showMatchModes]="false"
                                 [showOperator]="false" [showAddButton]="false">
                   <ng-template pTemplate="header">
                     <div class="p-px-3 p-pt-3 p-pb-0">
@@ -93,6 +93,16 @@ import {Table} from "primeng/table";
                 </p-columnFilter>
               </div>
             </th>
+            <th>
+              <div class="p-d-flex p-jc-between p-ai-center">
+                Setter
+              </div>
+            </th>
+            <th>
+              <div class="p-d-flex p-jc-between p-ai-center">
+                Lab
+              </div>
+            </th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-appointment>
@@ -110,7 +120,13 @@ import {Table} from "primeng/table";
               {{appointment.doctor}}
             </td>
             <td>
-              {{appointment.rep}}
+              {{appointment.representative}}
+            </td>
+            <td>
+              {{appointment.setter}}
+            </td>
+            <td>
+              {{appointment.lab}} ({{appointment.city}}, {{appointment.state}})
             </td>
           </tr>
         </ng-template>

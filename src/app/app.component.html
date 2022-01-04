@@ -5,7 +5,7 @@
                   [(ngModel)]="displayFilterBar" onIcon="pi pi-times" (onChange)="onFilterClick1($event)"
   ></p-toggleButton>
 </p-sidebar>
-<div class="app-header">
+<div class="app-header" [ngStyle]="{'min-height': pageTopCss}">
   <p-toggleButton #filterButton onLabel="Show Filters" offLabel="Hide Filters"  (onChange)="onFilterClick($event)"
                   [(ngModel)]="showFilterButton" onIcon="pi pi-filter" offIcon="pi pi-times"
                   styleClass="med-toggle-filters-button" [style]="{'top': filterButtonTop}"></p-toggleButton>

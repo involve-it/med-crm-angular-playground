@@ -20,6 +20,11 @@ export enum Months {
   October, November, December,
 }
 
+export interface ItemBase {
+  name: string;
+  value: string;
+}
+
 export interface AppointmentStatus {
   name: string;
   color: string;
@@ -63,5 +68,12 @@ export const AppointmentSteps = [
 ]
 
 export interface AppointmentsFilter {
-  statuses: AppointmentStatus[];
+  statuses?: AppointmentStatus[];
+  doctors?: ItemBase[];
+  representatives?: ItemBase[];
+  setters?: ItemBase[];
+  labs?: ItemBase[];
+  cities?: ItemBase[];
+  states?: ItemBase[];
+  dates?: Date[];
 }
