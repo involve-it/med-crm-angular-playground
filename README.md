@@ -1,5 +1,11 @@
 # MedicalCrm
 
+Trial task - simple medical CRM on Angular (working time - 5 days).
+
+Live demo available [here](https://involve-it.github.io/med-crm-angular-playground) (https://involve-it.github.io/med-crm-angular-playground)
+
+Adopted for desktop, mobile, tablet, follows responsive UI development principles.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
 ## Development server

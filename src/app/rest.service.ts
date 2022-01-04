@@ -17,7 +17,11 @@ export class RestService {
 
   // @ts-ignore
   async getAppointments(): Promise<Appointment[]> {
-    let ret = [...appointments];
+    let ret = [...appointments].map(appointment => ({...appointment, ...{
+      date: new Date(appointment.date),
+      // @ts-ignore
+      confirmationCallDate: typeof appointment.confirmationCallDate === 'string' ? appointment.confirmationCallDate : appointment.confirmationCallDate?.result
+    }}));
     const statusesFilter = this.filter.value.statuses,
       doctorsFilter = this.filter.value.doctors,
       repsFilter = this.filter.value.representatives,
@@ -65,6 +69,7 @@ export class RestService {
     if (!statuses || statuses.length < 1) return statusesExtended;
     return statusesExtended.filter(item => statuses.find(item1 => item1.selected && item1.name === item.name))
   }
+
   async getRepresentatives() {
     return [...new Set(appointments.map(app => app.representative))].map(item => ({ name: item, value: item }));
   }
@@ -79,6 +84,9 @@ export class RestService {
   }
   async getStates() {
     return [...new Set(appointments.map(app => app.state))].map(item => ({ name: item, value: item }));
+  }
+  async getMonths() {
+    return [...new Set(appointments.map(app => app.month))].map(item => ({ name: item, value: item }));
   }
   async getDoctors(unique = true) {
     const doctorsExtended = (unique? [...new Set(appointments.map(app => app.doctor))] : appointments.map(app => app.doctor))

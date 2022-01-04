@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import {FilterComponent} from "./filter.component";
 import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from "primeng/calendar";
+import {InputTextModule} from "primeng/inputtext";
 @NgModule({
   declarations: [
     AppComponent, HomePageComponent, AppointmentNewComponent, TableComponent, FilterComponent,
@@ -40,6 +41,7 @@ import {CalendarModule} from "primeng/calendar";
     ToggleButtonModule,
     ButtonModule,
     CalendarModule,
+    InputTextModule,
   ],
   providers: [],
   exports: [],
