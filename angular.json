@@ -28,9 +28,12 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/styles.theme-customization.css"
+              "src/styles.theme-customization.css",
+              "./node_modules/primeflex/primeflex.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/chart.js/dist/Chart.js"
+            ]
           },
           "configurations": {
             "production": {

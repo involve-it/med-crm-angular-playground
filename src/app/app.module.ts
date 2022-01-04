@@ -21,9 +21,13 @@ import {FilterComponent} from "./filter.component";
 import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from "primeng/calendar";
 import {InputTextModule} from "primeng/inputtext";
+import {ChartComponent} from "./chart.component";
+import {ChartModule} from "primeng/chart";
+import {DialogModule} from "primeng/dialog";
+import {ToastModule} from "primeng/toast";
 @NgModule({
   declarations: [
-    AppComponent, HomePageComponent, AppointmentNewComponent, TableComponent, FilterComponent,
+    AppComponent, HomePageComponent, AppointmentNewComponent, TableComponent, FilterComponent, ChartComponent,
   ],
   imports: [
     FormsModule,
@@ -42,6 +46,9 @@ import {InputTextModule} from "primeng/inputtext";
     ButtonModule,
     CalendarModule,
     InputTextModule,
+    ChartModule,
+    DialogModule,
+    ToastModule,
   ],
   providers: [],
   exports: [],

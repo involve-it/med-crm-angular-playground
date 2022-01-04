@@ -9,14 +9,14 @@ import {CalendarComponent} from "./calendar.component";
   selector: 'med-home-page',
   template: `
     <p-tabView (onChange)="handleTabChange($event)">
+      <p-tabPanel header="Stats">
+        <med-chart></med-chart>
+      </p-tabPanel>
       <p-tabPanel header="Table">
         <med-table></med-table>
       </p-tabPanel>
       <p-tabPanel header="Calendar">
         <med-calendar #medCalendar></med-calendar>
-      </p-tabPanel>
-      <p-tabPanel header="Stats">
-        Content 3
       </p-tabPanel>
     </p-tabView>
   `

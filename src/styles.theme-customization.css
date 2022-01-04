@@ -3676,3 +3676,25 @@ pre[class*=language-] code .token.operator, pre[class*=language-] code .token.st
 .p-datatable.p-datatable-lg .p-datatable-footer {
   padding: 1.25rem 1.25rem;
 }
+
+.box {
+  background-color: var(--surface-card);
+  text-align: center;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.box.box-stretched {
+   height: 100%;
+}
+
+.elevation .box {
+  min-height: 100px;
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin: 2rem;
+  border-radius: 4px;
+}

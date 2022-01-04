@@ -1,31 +1,33 @@
-import {Component, Input, Output} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {Appointment, AppointmentStatuses, AppointmentSteps} from './models';
 import {StepsModule} from 'primeng/steps';
-import {MenuItem} from 'primeng/api';
+import {MenuItem, MessageService} from 'primeng/api';
 
 @Component({
-  selector: 'appointment-details',
+  selector: 'appointment-new',
   template: `
-    <div *ngIf="appointment">
+    <div>
       <ul>
-        <li *ngIf="appointment.status">Status: <input />{{appointment.status}}</li>
-        <li *ngIf="appointment.month">Month: <b>{{appointment.month}}</b></li>
-        <li *ngIf="appointment.date">Date: <b>{{appointment.date}}</b></li>
-        <li *ngIf="appointment.doctor">Doctor: <b>{{appointment.doctor}}</b></li>
-        <li *ngIf="appointment.representative">Representative: <b>{{appointment.representative}}</b></li>
-        <li *ngIf="appointment.city">City: <b>{{appointment.city}}</b></li>
-        <li *ngIf="appointment.state">State: <b>{{appointment.state}}</b></li>
-        <li *ngIf="appointment.phone">Phone: <b>{{appointment.phone}}</b></li>
-        <li *ngIf="appointment.lab">Lab: <b>{{appointment.lab}}</b></li>
-        <li *ngIf="appointment.launchDate">LaunchDate: <b>{{appointment.launchDate}}</b></li>
-        <li *ngIf="appointment.monthScheduled">MonthScheduled: <b>{{appointment.monthScheduled}}</b></li>
-        <li *ngIf="appointment.poc">Poc: <b>{{appointment.poc}}</b></li>
-        <li *ngIf="appointment.setter">Setter: <b>{{appointment.setter}}</b></li>
-        <li *ngIf="appointment.notes"><i>{{appointment.notes}}</i></li>
+        <li>Status:</li>
+        <li>Month: <b></b></li>
+        <li>Date: <b></b></li>
+        <li>Doctor: <b></b></li>
+        <li>Representative: <b></b></li>
+        <li>City: <b></b></li>
+        <li>State: <b></b></li>
+        <li>Phone: <b></b></li>
+        <li>Lab: <b></b></li>
+        <li>LaunchDate: <b></b></li>
+        <li>MonthScheduled: <b></b></li>
+        <li>Poc: <b></b></li>
+        <li>Setter: <b></b></li>
+        <li><i>Notes: Work In Progress!</i></li>
       </ul>
     </div>
   `,
 })
-export class AppointmentNewComponent {
+export class AppointmentNewComponent implements OnInit {
   @Output() appointment?: Appointment
+  constructor() {}
+  ngOnInit() {}
 }

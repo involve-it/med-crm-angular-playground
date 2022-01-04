@@ -3,9 +3,22 @@ import {RestService} from "./rest.service";
 import {Appointment, AppointmentStatusToColorMapping} from "./models";
 import {FullCalendarComponent} from "@fullcalendar/angular";
 import {Table} from "primeng/table";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'med-table',
+  styles: [`
+    @media only screen and (max-width: 600px) and (min-width: 400px){
+      :host ::ng-deep .p-input-icon-left {
+        width: 150px;
+      }
+    }
+    @media only screen and (max-width: 400px) {
+      :host ::ng-deep .p-input-icon-left {
+        width: 100px;
+      }
+    }
+  `],
   template: `
     <div class="card">
       <h5>Filter Menu</h5>
@@ -23,6 +36,7 @@ import {Table} from "primeng/table";
               <i class="pi pi-search"></i>
               <input pInputText type="text" (input)="dataTable.filterGlobal(getSearchString($event), 'contains')" placeholder="Global search"/>
             </span>
+            <p-button [styleClass]="'new-appointment-button'" icon="pi pi-plus" [style]="{'float': 'right'}" (onClick)="newAppointmentClick()"></p-button>
           </div>
         </ng-template>
         <ng-template pTemplate="header">
@@ -173,7 +187,13 @@ import {Table} from "primeng/table";
         </ng-template>
       </p-table>
     </div>
-  `
+    <p-dialog #dRef header="New Appointment" [(visible)]="displayNewAppointmentModal" [draggable]="false"
+              [style]="{width: '50vw'}" [dismissableMask]="true" [modal]="false" styleClass="med-calendar">
+      <appointment-new></appointment-new>
+    </p-dialog>
+    <p-toast position="top-right"></p-toast>
+  `,
+  providers: [MessageService],
 })
 export class TableComponent implements OnInit {
 
@@ -193,8 +213,9 @@ export class TableComponent implements OnInit {
 
   activityValues: number[] = [0, 100];
 
-  constructor(private restService: RestService) {
-  }
+  displayNewAppointmentModal = false;
+
+  constructor(private restService: RestService, private messageService: MessageService) {}
 
   async ngOnInit() {
     // subscribe to global filter changes:
@@ -221,5 +242,9 @@ export class TableComponent implements OnInit {
   }
   getSearchString(event: any) {
     return event.target.value;
+  }
+  newAppointmentClick() {
+    this.displayNewAppointmentModal = true;
+    setTimeout(()=> this.messageService.add({severity:'warn', summary:'WIP', detail:'Work In Progress!'}), 1000);
   }
 }
