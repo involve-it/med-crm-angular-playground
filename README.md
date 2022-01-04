@@ -1,10 +1,16 @@
-# MedicalCrm
+# Medical CRM
 
-Trial task - simple medical CRM on Angular (working time - 5 days).
+**Trial task to design and develop front-end for a simple medical CRM**
 
-Live demo available [here](https://involve-it.github.io/med-crm-angular-playground) (https://involve-it.github.io/med-crm-angular-playground)
+**Inputs**: data, provided in Excel format.
 
-Adopted for desktop, mobile, tablet, follows responsive UI development principles.
+**Working time**: 5 days
+
+**Live demo** available [here](https://involve-it.github.io/med-crm-angular-playground) (https://involve-it.github.io/med-crm-angular-playground)
+
+**Responsive UI** development principles: dopted for desktop, mobile, tablet.
+
+**Techs**: Angular 13 and [PrimeNg](https://www.primefaces.org/primeng/) UI component library was used.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
