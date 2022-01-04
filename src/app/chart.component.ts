@@ -35,7 +35,7 @@ import {Appointment, AppointmentStatusToColorMapping, ItemBase} from "./models";
           <h4>Setters</h4>
           <p-chart type="pie" [data]="setters" [options]="options"></p-chart>
       </div></div>
-      <div class="col-12 sm:col-12 md:col-6 lg:col-4 xl:col-3"><div class="box bg-gray-100">
+      <div class="col-12 sm:col-12 md:col-12 lg:col-12 xl:col-12"><div class="box bg-gray-100">
           <h4>Months</h4>
           <p-chart type="line" [data]="months" [options]="options"></p-chart>
       </div></div>
