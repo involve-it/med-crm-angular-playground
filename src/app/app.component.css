@@ -1,0 +1,46 @@
+:host ::ng-deep .med-toggle-filters-button {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  left: 50%;
+  transform: translate(-50%);
+  top: 0;
+  position: absolute !important;
+}
+@media only screen and (max-width: 600px) {
+  :host ::ng-deep .med-toggle-filters-button-on {
+    position: sticky !important;
+  }
+}
+@media only screen and (min-width: 600px) {
+  :host ::ng-deep .med-toggle-filters-button-on {
+    position: absolute !important;
+  }
+}
+:host ::ng-deep .med-toggle-filters-button-on {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 0;
+}
+:host ::ng-deep .p-sidebar-content {
+  height: 100%;
+  padding-bottom: 0 !important;
+}
+:host ::ng-deep .p-sidebar-active {
+  border-bottom: 1px solid #cdcdcd;
+}
+:host ::ng-deep .app-header {
+  position: relative;
+  min-height: 75px;
+}
+:host ::ng-deep .p-sidebar-header {
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+@media only screen and (max-width: 600px) {
+  :host ::ng-deep .p-dialog {
+    width: 100vw !important;
+  }
+}

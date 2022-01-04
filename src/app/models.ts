@@ -20,6 +20,12 @@ export enum Months {
   October, November, December,
 }
 
+export interface AppointmentStatus {
+  name: string;
+  color: string;
+  selected?: boolean;
+}
+
 export enum AppointmentStatuses {
   'Interested',
   'Confirmed',
@@ -32,6 +38,20 @@ export enum AppointmentStatuses {
   'Scheduled',
   'Rescheduled',
 }
+
+export const AppointmentStatusToColorMapping: AppointmentStatus[] = [
+  { name: 'Interested', color: '#75c1f3' },
+  { name: 'Confirmed', color: '#0151c9' },
+  { name: 'Rep Cancelled', color: '#ff0b28' },
+  { name: 'Not Interested', color: '#ff0b28' },
+  { name: 'Doctor Cancelled', color: '#ff0b28' },
+  { name: 'Not Qualified', color: '#ff0b28' },
+  { name: 'Producing', color: '#01c99a' },
+  { name: 'Verified', color: '#01c99a' },
+  { name: 'Scheduled', color: '#01c94a' },
+  { name: 'Rescheduled', color: '#01c94a' },
+]
+
 //name/values
 export const AppointmentSteps = [
   {index: 0, values: [AppointmentStatuses.Interested], name: 'Initial'},
@@ -41,3 +61,7 @@ export const AppointmentSteps = [
   {index: 3, values: [AppointmentStatuses.Verified], name: 'Verified'},
   {index: 4, values: [AppointmentStatuses.Scheduled, AppointmentStatuses.Rescheduled], name: 'Scheduled'},
 ]
+
+export interface AppointmentsFilter {
+  statuses: AppointmentStatus[];
+}

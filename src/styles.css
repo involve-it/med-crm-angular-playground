@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+.p-dialog .p-dialog-header {
+  /*border-left: 3px #c2c2c2 solid !important;*/
+}
+.med-dialog-Verified .p-dialog-header {
+  border-left: 3px #c2c2c2 solid !important;
+}
+
+/*.p-dialog-mask.p-component-overlay.p-component-overlay-enter p-dialog-mask-scrollblocker ng-star-inserted {*/
+.p-dialog-mask.p-component-overlay.p-component-overlay-enter {
+  z-index: 10000 !important;
+}
+

@@ -1,1 +1,12 @@
-["Interested","Confirmed","Rep Cancelled","Not Interested","Doctor Cancelled","Not Qualified","Producing","Verified","Scheduled","Rescheduled"]
+[
+  "Interested",
+  "Confirmed",
+  "Rep Cancelled",
+  "Not Interested",
+  "Doctor Cancelled",
+  "Not Qualified",
+  "Producing",
+  "Verified",
+  "Scheduled",
+  "Rescheduled"
+]
