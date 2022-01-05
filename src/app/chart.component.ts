@@ -1,6 +1,7 @@
-import {Component, OnInit, } from '@angular/core';
+import {Component, OnDestroy, OnInit,} from '@angular/core';
 import {RestService} from "./rest.service";
 import {Appointment, AppointmentStatusToColorMapping, ItemBase} from "./models";
+import {Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'med-chart',
@@ -42,7 +43,7 @@ import {Appointment, AppointmentStatusToColorMapping, ItemBase} from "./models";
     </div>
   `,
 })
-export class ChartComponent implements OnInit {
+export class ChartComponent implements OnInit, OnDestroy {
   options: any = {};
   config: any;
   statuses: any;
@@ -50,11 +51,14 @@ export class ChartComponent implements OnInit {
   labs: any;
   setters: any;
   months: any;
+  private unsubscribe$: Subject<any> = new Subject<any>();
 
   constructor(private restService: RestService) {}
 
   async ngOnInit() {
-    this.restService.filter.subscribe(async () => {
+    this.restService.filter.pipe(
+      takeUntil(this.unsubscribe$)
+    ).subscribe(async () => {
       const appointments = await this.restService.getAppointments();
       this.options = this.getOptions(appointments);
       this.statuses = this.getData(appointments, 'status');
@@ -64,6 +68,9 @@ export class ChartComponent implements OnInit {
       this.months = this.getData(appointments, 'month');
     });
   }
+  ngOnDestroy() {
+    this.unsubscribe$.complete();
+  }
   getOptions(appointments: Appointment[]) {
     return {}
   }
@@ -71,7 +78,7 @@ export class ChartComponent implements OnInit {
     if (!type) throw 'getData:: type not provided';
     const amount = appointments.reduce((acc: any, cur: any) => {
       if (!acc[cur[type]]) {
-        acc[cur[type]] = { count: 0 }
+        acc[cur[type]] = { count: 1 }
       } else {
         acc[cur[type]].count += 1;
       }
